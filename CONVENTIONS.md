@@ -1,6 +1,6 @@
 # C# Code Conventie
 
-Dit document beschrijft de codeconventie voor het C#-project [projectnaam].
+Dit document beschrijft de codeconventie voor het C#-project Blokstart-e1 (Dungeon Dude).
 
 ## Bestandsnaamconventie
 
