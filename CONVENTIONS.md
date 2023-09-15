@@ -21,6 +21,7 @@ Dit document beschrijft de codeconventie voor het C#-project Blokstart-e1 (Dunge
 - Beperk regellengte tot **maximaal 100 tekens**.
 - Voeg **lege regels** toe tussen logische secties van de code om de leesbaarheid te verbeteren.
 - Gebruik accolades op een nieuwe regel voor methoden, klassen, enz.
+- DRY Don't repeat yourself.
 
 ```csharp
 public class MyClass
