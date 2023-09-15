@@ -16,6 +16,7 @@ Dit document beschrijft de codeconventie voor het C#-project Blokstart-e1 (Dunge
 - Gebruik **PascalCase** voor klasse- en type-namen. Bijvoorbeeld: `MyClass`, `PersonModel`.
 - Gebruik **camelCase** voor variabelen en parameters. Bijvoorbeeld: `myVariable`, `myParameter`.
 - Gebruik **UpperCamelCase** voor naamgeving van methoden. Bijvoorbeeld: `CalculateTotal()`, `GetCustomerDetails()`.
+- Gebruik **lowerCamelCase** voor fields Bijvoorbeeld:  private string currentLocation;
 ## Opmaak
 
 - Beperk regellengte tot **maximaal 100 tekens**.
