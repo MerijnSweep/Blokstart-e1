@@ -82,7 +82,10 @@ namespace Blokstart_e1
         { "shop", "You are at the weapon shop. You can upgrade your gear here." },
         { "forest", "You are on a forest path. Be prepared to encounter enemies." },
         { "cave", "You are in a dark cave. It's a dangerous place with unknown challenges ahead." },
-        { "save", "Save the game so you can return later." }
+        {"Instructions", "How to Play Dungeon dude" },
+        { "save", "Save the game so you can return later." },
+        {"quit", "Exit Dungeon Dude thank you for playing." }
+
     };
 
             public Game()
@@ -218,8 +221,9 @@ namespace Blokstart_e1
         private void CaveEnemiesCombat(ref int playerHp, ref int playerGold, bool hasBetterWeapon)
         {
             Console.WriteLine("You encounter two menacing figures in the dark cave!");
-            int enemy1Hp = 40;
-            int enemy2Hp = 40;
+            // Adjust Enemy Hp here
+            int enemy1Hp = 10;
+            int enemy2Hp = 10;
 
             while (playerHp > 0 && (enemy1Hp > 0 || enemy2Hp > 0))
             {
@@ -264,9 +268,11 @@ namespace Blokstart_e1
             }
         }
 
-
+        // Adjust the boss health here
+        int bossDragonHp = 70;
         private void BossEnemyCombat(ref int playerHp, ref int playerGold, bool hasBetterWeapon, int bossEnemyHp)
         {
+
             while (playerHp > 0 && bossEnemyHp > 0)
             {
                 Console.WriteLine($"Your HP: {playerHp} | Boss Enemy HP: {bossEnemyHp}");
@@ -282,6 +288,7 @@ namespace Blokstart_e1
 
                     if (bossEnemyHp <= 0)
                     {
+                        bossEnemyHp = 0;
                         Console.WriteLine("You defeated the boss enemy!");
                         playerGold += 100;
                         break;
@@ -289,7 +296,10 @@ namespace Blokstart_e1
                 }
                 else if (action == "run")
                 {
-                    Console.WriteLine("You managed to escape from the boss enemy!");
+                    Console.WriteLine("You decided to run from the fearsome dragon, leaving the cave behind.");
+                    Console.WriteLine("Your adventure ends in disgrace as tales of your cowardice spread throughout the village.");
+                    Console.WriteLine("Game over! You have not completed the quest.");
+                    Environment.Exit(0);
                     break;
                 }
                 else
@@ -327,21 +337,12 @@ namespace Blokstart_e1
                 Console.WriteLine("You have already completed the quest.");
                 return;
             }
+            CaveEnemiesCombat(ref playerHp, ref playerGold, hasBetterWeapon);
 
-            Console.WriteLine("As you enter the cave, you encounter a massive dragon!");
-            int bossDragonHp = 200; 
+            Console.WriteLine("As you get to the final area of the cave, you encounter a massive dragon!");
+
 
             BossEnemyCombat(ref playerHp, ref playerGold, hasBetterWeapon, bossDragonHp);
-
-            bool playerRanFromDragon = playerHp > 0 && bossDragonHp > 0;
-
-            if (playerRanFromDragon)
-            {
-                Console.WriteLine("You decided to run from the fearsome dragon, leaving the cave behind.");
-                Console.WriteLine("Your adventure ends in disgrace as tales of your cowardice spread throughout the village.");
-                Console.WriteLine("Game over! You have not completed the quest.");
-                Environment.Exit(0);
-            }
 
             Console.WriteLine("As you continue deeper into the cave, you discover a hidden chamber with a glowing ancient artifact.");
 
@@ -370,12 +371,6 @@ namespace Blokstart_e1
                 Console.WriteLine("You decide not to interact with the artifact.");
             }
         }
-
-
-
-
-
-
-
     }
 }
+
